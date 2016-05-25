@@ -5,9 +5,7 @@ angular.module('AngularScaffold.Controllers')
       $scope.ingredient = {};
 
       $scope.GetIngredients = function(){
-        alert('entre');
         ingredientService.GetIngredients().then(function(response){
-          alert('volvi a entrar');
           $scope.ingredients = response.data;
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message)

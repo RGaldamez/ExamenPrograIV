@@ -3,7 +3,7 @@
   <button class="btn waves-effect waves-light red lighten-1" ng-click="PostIngredient()" type="submit" ng-show="isAdmin()">Post Ingredient </button>
     <div class="row" ng-show="isAdmin()">
       <div class="input-field col s4">
-        <input placeholder="identificarion" type="text" name="identification" ng-model="ingredient.identification">
+        <input placeholder="identification" type="text" name="identification" ng-model="ingredient.identification">
         
       </div>
       
@@ -64,6 +64,6 @@
       </div>
     </div>
     
-     
+        <button class="btn waves-effect waves-light red lighten-1"  ng-show="isAdmin()" ui-sref="home2">Go to Products</button>
     
 </div>
