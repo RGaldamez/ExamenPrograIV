@@ -1,32 +1,32 @@
 angular.module('AngularScaffold.Controllers')
-  .controller('gameController', ['$scope', 'gameService', '$sessionStorage', function ($scope, gameService, $sessionStorage) {
-    	$scope.title = "Tabla de Juegos."
-      $scope.games = [];
-      $scope.game = {};
+  .controller('ingredientController', ['$scope', 'ingredientService', '$sessionStorage', function ($scope, ingredientService, $sessionStorage) {
+    	$scope.title = "Ingredientes."
+      $scope.ingredients = [];
+      $scope.ingredient = {};
 
-      $scope.GetGames = function(){
-        gameService.GetGames().then(function(response){
-          $scope.games = response.data;
+      $scope.GetIngredients = function(){
+        ingredientService.GetIngredients().then(function(response){
+          $scope.ingredients = response.data;
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message)
         });
       }
 
-      $scope.PostGame = function(){
+      $scope.PostIngredient = function(){
         console.log('ke ondas raza');
-        gameService.PostGame($scope.game).then(function(response){
-          alert("Posted to games");
-          $scope.GetGames();
+        ingredientService.PostIngredient($scope.ingredient).then(function(response){
+          alert("Posted to ingredients");
+          $scope.GetIngredients();
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message);
         });
       }
       
       
-      $scope.DeleteGame = function (params) {
-        gameService.DeleteGame(params).then(function (params) {
-          alert("Game Deleted");
-          $scope.GetGames();
+      $scope.DeleteIngredient = function (params) {
+        ingredientService.DeleteIngredient(params).then(function (params) {
+          alert("Ingredient Deleted");
+          $scope.GetIngredients();
         }).catch(function (err) {
           alert(err.data.error + " " + err.data.message);
         });

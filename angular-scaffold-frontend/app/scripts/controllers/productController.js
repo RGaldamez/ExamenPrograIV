@@ -1,32 +1,32 @@
 angular.module('AngularScaffold.Controllers')
-  .controller('gameController', ['$scope', 'gameService', '$sessionStorage', function ($scope, gameService, $sessionStorage) {
+  .controller('productController', ['$scope', 'productService', '$sessionStorage', function ($scope, productService, $sessionStorage) {
     	$scope.title = "Tabla de Juegos."
-      $scope.games = [];
-      $scope.game = {};
+      $scope.products = [];
+      $scope.product = {};
 
-      $scope.GetGames = function(){
-        gameService.GetGames().then(function(response){
-          $scope.games = response.data;
+      $scope.GetProducts = function(){
+        productService.GetProducts().then(function(response){
+          $scope.products = response.data;
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message)
         });
       }
 
-      $scope.PostGame = function(){
+      $scope.PostProduct = function(){
         console.log('ke ondas raza');
-        gameService.PostGame($scope.game).then(function(response){
-          alert("Posted to games");
-          $scope.GetGames();
+        productService.PostProduct($scope.product).then(function(response){
+          alert("Posted to products");
+          $scope.GetProducts();
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message);
         });
       }
       
       
-      $scope.DeleteGame = function (params) {
-        gameService.DeleteGame(params).then(function (params) {
-          alert("Game Deleted");
-          $scope.GetGames();
+      $scope.DeleteProduct = function (params) {
+        productService.DeleteProduct(params).then(function (params) {
+          alert("Product Deleted");
+          $scope.GetProducts();
         }).catch(function (err) {
           alert(err.data.error + " " + err.data.message);
         });
