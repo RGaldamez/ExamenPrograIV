@@ -5,8 +5,18 @@ angular.module('AngularScaffold.Controllers')
       $scope.ingredient = {};
 
       $scope.GetIngredients = function(){
+        alert('entre');
         ingredientService.GetIngredients().then(function(response){
+          alert('volvi a entrar');
           $scope.ingredients = response.data;
+        }).catch(function(err){
+          alert(err.data.error + " " + err.data.message)
+        });
+      }
+      
+      $scope.GetIngredient = function(params){
+        ingredientService.GetIngredient(params).then(function(response){
+          $scope.ingredient = response.data;
         }).catch(function(err){
           alert(err.data.error + " " + err.data.message)
         });
@@ -40,10 +50,6 @@ angular.module('AngularScaffold.Controllers')
 
       $scope.isRegular = function(){
         return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('regular') > -1;
-      }
-      
-      $scope.isRokr = function() {
-        return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('rokr') > -1;
       }
 
   }]);

@@ -9,6 +9,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
         .state('home', {
             url: '/home',
             templateUrl: '/views/home.html',
-            controller: 'gameController'
+            controller: 'ingredientController'
         });
 }])

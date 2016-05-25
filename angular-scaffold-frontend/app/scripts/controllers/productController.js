@@ -42,8 +42,4 @@ angular.module('AngularScaffold.Controllers')
         return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('regular') > -1;
       }
       
-      $scope.isRokr = function() {
-        return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('rokr') > -1;
-      }
-
   }]);
